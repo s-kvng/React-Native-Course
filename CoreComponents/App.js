@@ -10,6 +10,7 @@ import {
   Modal,
   StatusBar,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 
 const logoImg = require("./assets/adaptive-icon.png");
@@ -121,6 +122,15 @@ export default function App() {
               },
             ])
           }
+        />
+
+        <ActivityIndicator />
+        <ActivityIndicator size={"large"} />
+        <ActivityIndicator size={"large"} color={"midnightblue"} />
+        <ActivityIndicator
+          size={"large"}
+          color={"midnightblue"}
+          animating={false}
         />
 
         {/* Working with pressables */}
