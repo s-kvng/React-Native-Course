@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "center",
+    // justifyContent: "center",
+    alignItems: "baseline",
     marginTop: 64,
     borderWidth: 6,
     borderColor: "red",
