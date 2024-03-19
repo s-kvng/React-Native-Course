@@ -12,6 +12,7 @@ import {
   Alert,
   ActivityIndicator,
 } from "react-native";
+import Greet from "./components/Greet";
 
 const logoImg = require("./assets/adaptive-icon.png");
 
@@ -132,6 +133,9 @@ export default function App() {
           color={"midnightblue"}
           animating={false}
         />
+
+        <Greet name={"Nathaniel"} />
+        <Greet name={"Bernice"} />
 
         {/* Working with pressables */}
         {/* <Pressable onPress={() => console.log("Press text")}>
