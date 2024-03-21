@@ -5,14 +5,25 @@ import Box from "./components/Box";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Box style={{ backgroundColor: "#8e9b00", flexShrink: 1 }}>
+      <Box
+        style={{ backgroundColor: "#8e9b00", flexShrink: 1, top: 75, left: 75 }}
+      >
         Box 1 Shrink
       </Box>
       <Box style={{ backgroundColor: "#b65d1f", flexShrink: 1 }}>
         Box 2 Shrink
       </Box>
       <Box style={{ backgroundColor: "#1c4c56" }}>Box 3</Box>
-      <Box style={{ backgroundColor: "#ab9156" }}>Box 4</Box>
+      <Box
+        style={{
+          backgroundColor: "#ab9156",
+          position: "absolute",
+          top: 100,
+          left: 100,
+        }}
+      >
+        Box 4
+      </Box>
       <Box style={{ backgroundColor: "#6b0803", alignSelf: "auto" }}>Box 5</Box>
       {/* when no align self is defined it takes it default value from the container , which has a default value of stretch  */}
       <Box style={{ backgroundColor: "#b95f43" }}>Box 6</Box>
