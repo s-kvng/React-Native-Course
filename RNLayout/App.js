@@ -5,8 +5,12 @@ import Box from "./components/Box";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Box style={{ backgroundColor: "#8e9b00" }}>Box 1</Box>
-      <Box style={{ backgroundColor: "#b65d1f" }}>Box 2</Box>
+      <Box style={{ backgroundColor: "#8e9b00", flexShrink: 1 }}>
+        Box 1 Shrink
+      </Box>
+      <Box style={{ backgroundColor: "#b65d1f", flexShrink: 1 }}>
+        Box 2 Shrink
+      </Box>
       {/* <Box style={{ backgroundColor: "#1c4c56", flexBasis: 140, flex: 1 }}>
         Box 3
       </Box> */}
@@ -24,9 +28,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection: "row",
+    flexDirection: "row",
     // justifyContent: "center",
-    // alignItems: "baseline",
+    alignItems: "flex-start",
+    width: 300,
     // flexWrap: "wrap",
     // rowGap: 20,
     // columnGap: 30,
