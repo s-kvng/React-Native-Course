@@ -7,18 +7,35 @@ import {
   StatusBar,
   FlatList,
   useWindowDimensions,
+  SectionList,
 } from "react-native";
 
 import PokemonList from "./data.json";
+import GroupedPokemonList from "./grouped-data.json";
 
 export default function App() {
-  const windowHeight = useWindowDimensions().height;
-  const newWindow = windowHeight - 85;
+  // const windowHeight = useWindowDimensions().height;
+  // const newWindow = windowHeight - 85;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.scrollview}>
-        <FlatList
-          data={[]}
+        <SectionList
+          sections={GroupedPokemonList}
+          renderItem={({ item }) => {
+            return (
+              <View style={styles.card}>
+                <Text style={styles.cardText}>{item}</Text>
+              </View>
+            );
+          }}
+          renderSectionHeader={({ section }) => {
+            return <Text style={styles.sectionHeaderText}>{section.type}</Text>;
+          }}
+          ItemSeparatorComponent={() => <View style={{ height: 16 }}></View>}
+          SectionSeparatorComponent={() => <View style={{ height: 16 }}></View>}
+        />
+        {/* <FlatList
+          data={PokemonList}
           renderItem={({ item }) => {
             console.log(item.id);
             return (
@@ -29,7 +46,7 @@ export default function App() {
             );
           }}
           keyExtractor={(item) => item.id.toString()}
-          // horizontal={true}
+          horizontal={true}
           ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
           ListEmptyComponent={
             <View
@@ -43,7 +60,13 @@ export default function App() {
               <Text>No Item found</Text>
             </View>
           }
-        />
+          ListHeaderComponent={
+            <Text style={styles.headerText}>Pokemon List</Text>
+          }
+          ListFooterComponent={
+            <Text style={styles.footerText}>End of List</Text>
+          }
+        /> */}
       </View>
       {/* <ScrollView style={styles.scrollview}>
         {PokemonList.map((pokemon) => (
@@ -75,5 +98,20 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 20,
+  },
+  headerText: {
+    fontSize: 30,
+    textAlign: "center",
+    margin: 12,
+  },
+  footerText: {
+    fontSize: 30,
+    textAlign: "center",
+    marginTop: 10,
+  },
+  sectionHeaderText: {
+    backgroundColor: "white",
+    fontSize: 30,
+    fontWeight: "bold",
   },
 });
