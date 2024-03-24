@@ -11,6 +11,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
 
 export default function App() {
@@ -30,6 +31,19 @@ export default function App() {
     setError(errors);
 
     return Object.keys(errors).length === 0;
+  };
+
+  const onSubmit = () => {
+    if (validationForm()) {
+      Alert.alert(
+        "Login Status",
+        ` You have successfully Logged in ${username} - ${password}`
+      );
+
+      setUsername("");
+      setPassword("");
+      setError({});
+    }
   };
 
   return (
@@ -95,7 +109,9 @@ export default function App() {
             value={username}
             onChangeText={setUsername}
           />
-          {/* {errors.username ? <Text style={styles.errorText}>{errors.username}</Text> : null} */}
+          {error.username ? (
+            <Text style={styles.errorText}>{error.username}</Text>
+          ) : null}
           <Text style={styles.label}>Password</Text>
           <TextInput
             style={styles.input}
@@ -104,8 +120,10 @@ export default function App() {
             value={password}
             onChangeText={setPassword}
           />
-          {/* {errors.password ? <Text style={styles.errorText}>{errors.password}</Text> : null} */}
-          <Button title="Login" onPress={() => {}} />
+          {error.password ? (
+            <Text style={styles.errorText}>{error.password}</Text>
+          ) : null}
+          <Button title="Login" onPress={onSubmit} />
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
