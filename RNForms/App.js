@@ -24,6 +24,13 @@ export default function App() {
         // autoCapitalize="none"
       />
       <Text style={styles.inputText}>I am called {name}</Text>
+      <View>
+        <TextInput
+          style={[styles.inputText, styles.multilineText]}
+          placeholder="Message"
+          multiline
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -43,5 +50,9 @@ const styles = StyleSheet.create({
   inputText: {
     fontSize: 25,
     padding: 20,
+  },
+  multilineText: {
+    minHeight: 100,
+    textAlignVertical: "top",
   },
 });
